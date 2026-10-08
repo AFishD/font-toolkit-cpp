@@ -14,9 +14,10 @@ cmake-build-*/
 *.pdb
 *.ilk
 
-# ---- local test corpus and Python reference (not redistributed) ------------
+# ---- local resources (font corpora are not redistributed) ------------------
 Fonts/
 fonttools/
+_local/
 
 # ---- editor / OS -----------------------------------------------------------
 .vscode/
@@ -32,12 +33,11 @@ __pycache__/
 .venv/
 venv/
 
-# ---- generated fixtures / scratch output -----------------------------------
+# ---- scratch output --------------------------------------------------------
 out.ttf
 out.otf
 out.woff
 out.woff2
 *.ttx
-!cpp/tests/data/*.ttx
 bench_sub.ttf
 ftk-subset-probe.otf

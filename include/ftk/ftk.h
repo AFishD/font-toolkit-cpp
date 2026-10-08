@@ -140,6 +140,7 @@ FTK_API int32_t ftk_var_instances(ftk_font* f, ftk_instance* out, int32_t cap);
 FTK_API int32_t ftk_table_tags(ftk_font* f, uint32_t* out_tags, int32_t cap);
 /* Raw table copy; caller frees with ftk_free. */
 FTK_API uint8_t* ftk_table_data(ftk_font* f, uint32_t tag, size_t* out_size);
+/* 0 = every checksum matches, 1 = mismatch, -1 = invalid handle. */
 FTK_API int ftk_verify_checksums(ftk_font* f);
 
 /* ----------------------------------------------------------------- dump */

@@ -269,8 +269,10 @@ uint8_t* ftk_table_data(ftk_font* f, uint32_t tag, size_t* out_size) {
 }
 
 int ftk_verify_checksums(ftk_font* f) {
-    if (!f) return 0;
-    return f->font->verifyChecksums(nullptr) ? 1 : 0;
+    if (!f) return -1;
+    // 0 = all checksums verify, 1 = mismatch (matches the other int-returning
+    // entry points, which also use 0 for success)
+    return f->font->verifyChecksums(nullptr) ? 0 : 1;
 }
 
 char* ftk_dump_ttx(ftk_font* f, int skip_glyphs, const uint32_t* only_tags, int32_t n_tags) {

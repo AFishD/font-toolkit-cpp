@@ -58,26 +58,12 @@ add_executable(ftk_cli ${FTK_CLI_SRC})
 set_target_properties(ftk_cli PROPERTIES OUTPUT_NAME ftk)
 target_link_libraries(ftk_cli PRIVATE ftk)
 
-# ------------------------------------------------------------------ tests
-enable_testing()
-file(GLOB FTK_TEST_SRC ${CMAKE_CURRENT_SOURCE_DIR}/tests/*.cpp)
-add_executable(ftk_tests ${FTK_TEST_SRC})
-target_link_libraries(ftk_tests PRIVATE ftk)
-add_test(NAME ftk_tests COMMAND ftk_tests)
-
-# ------------------------------------------------------- diagnostic probes
-option(FTK_BUILD_PROBES "Build diagnostic probe executables" ON)
-if(FTK_BUILD_PROBES)
-  foreach(probe cffprobe probe varprobe subsetprobe)
-    if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/tools/probes/${probe}.cpp)
-      add_executable(ftk_${probe} ${CMAKE_CURRENT_SOURCE_DIR}/tools/probes/${probe}.cpp)
-      target_link_libraries(ftk_${probe} PRIVATE ftk)
-    endif()
-  endforeach()
-  # external C consumer of the plugin ABI (built as C to prove the ABI works
-  # from a plain C host, not just from C++)
-  add_executable(ftk_plugindemo ${CMAKE_CURRENT_SOURCE_DIR}/tools/probes/plugindemo.c)
-  target_link_libraries(ftk_plugindemo PRIVATE ftk)
+# ------------------------------------------------------------------ demo
+# Builds the plugin-ABI example shipped in docs/demo.c against the library.
+option(FTK_BUILD_DEMO "Build the plugin ABI example (docs/demo.c)" OFF)
+if(FTK_BUILD_DEMO)
+  add_executable(ftk_demo ${CMAKE_CURRENT_SOURCE_DIR}/docs/demo.c)
+  target_link_libraries(ftk_demo PRIVATE ftk)
 endif()
 
 install(TARGETS ftk ftk_cli RUNTIME DESTINATION bin

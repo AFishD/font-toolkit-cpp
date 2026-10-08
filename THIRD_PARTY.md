@@ -2,22 +2,21 @@
 
 ## Brotli (vendored)
 
-`cpp/third_party/brotli/` contains the Brotli decoder sources used for WOFF2
+`third_party/brotli/` contains the Brotli decoder sources used for WOFF2
 decompression, taken unmodified from the
 [Brotli](https://github.com/google/brotli) project.
 
 ```
 Copyright (c) 2009, 2010, 2013-2016 by the Brotli Authors.
-MIT License — see cpp/third_party/brotli/LICENSE
+MIT License — see third_party/brotli/LICENSE
 ```
 
 ## fontTools (reference implementation, not included)
 
 This project is an independent C++ reimplementation of the behaviour of the
 Python [fontTools](https://github.com/fonttools/fonttools) toolkit. fontTools
-is **not** vendored or linked: it is used only as an external reference for
-cross-validation (see `docs/VALIDATION.md`) and its test fixtures are used as
-inputs where noted.
+is **not** vendored or linked: it is only the external reference the
+implementation was developed and checked against.
 
 ```
 Copyright (c) 2017 Just van Rossum and the fontTools developers.
