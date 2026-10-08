@@ -1,0 +1,43 @@
+# ---- build output ----------------------------------------------------------
+build/
+build-*/
+cmake-build-*/
+*.obj
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.lib
+*.exp
+*.exe
+*.pdb
+*.ilk
+
+# ---- local test corpus and Python reference (not redistributed) ------------
+Fonts/
+fonttools/
+
+# ---- editor / OS -----------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# ---- python ----------------------------------------------------------------
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ---- generated fixtures / scratch output -----------------------------------
+out.ttf
+out.otf
+out.woff
+out.woff2
+*.ttx
+!cpp/tests/data/*.ttx
+bench_sub.ttf
+ftk-subset-probe.otf
